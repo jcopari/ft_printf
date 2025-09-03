@@ -1,39 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_aux.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcopari- <jcopari-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/18 16:54:01 by jcopari-          #+#    #+#             */
-/*   Updated: 2025/09/02 20:43:44 by jcopari-         ###   ########.fr       */
+/*   Created: 2025/09/02 16:04:32 by jcopari-          #+#    #+#             */
+/*   Updated: 2025/09/02 16:40:40 by jcopari-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-//cspdiuxX%
 
-int ft_printf(const char *texto, ...)
+void    formatacao(char c, va_list lista)
 {
-	va_list variaveis;
-	unsigned int caracteres;
-	
-	caracteres = 0;
-	va_start(variaveis, texto);
-	while(*texto != '\0')
-	{
-		if(*texto != '%')
-		{
-			ft_putchar_fd(*texto, 1);
-			caracteres++;
-		}
-		else
-		{
-			formatacao(*(texto + 1), variaveis);
-			texto++;
-		}
-		texto++;
-	}
-	va_end(variaveis);
-	return (caracteres);
+    if (c == '%')
+        ft_putchar_fd('%',1);
+    else if(c == 'c')
+        ft_putchar_fd(c, 1);
+    
 }

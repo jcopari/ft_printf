@@ -1,39 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcopari- <jcopari-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/18 16:54:01 by jcopari-          #+#    #+#             */
-/*   Updated: 2025/09/02 20:43:44 by jcopari-         ###   ########.fr       */
+/*   Created: 2025/09/01 14:28:50 by jcopari-          #+#    #+#             */
+/*   Updated: 2025/09/02 21:34:50 by jcopari-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-//cspdiuxX%
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
-int ft_printf(const char *texto, ...)
-{
-	va_list variaveis;
-	unsigned int caracteres;
-	
-	caracteres = 0;
-	va_start(variaveis, texto);
-	while(*texto != '\0')
-	{
-		if(*texto != '%')
-		{
-			ft_putchar_fd(*texto, 1);
-			caracteres++;
-		}
-		else
-		{
-			formatacao(*(texto + 1), variaveis);
-			texto++;
-		}
-		texto++;
-	}
-	va_end(variaveis);
-	return (caracteres);
-}
+# include <stdarg.h>
+
+int     ft_printf(const char *texto, ...);
+void    formatacao(char c, va_list lista);
+
+#endif
