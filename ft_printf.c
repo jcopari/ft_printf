@@ -6,7 +6,7 @@
 /*   By: jcopari- <jcopari-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 16:54:01 by jcopari-          #+#    #+#             */
-/*   Updated: 2025/09/02 20:43:44 by jcopari-         ###   ########.fr       */
+/*   Updated: 2025/09/08 13:15:09 by jcopari-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int ft_printf(const char *texto, ...)
 		}
 		else
 		{
-			formatacao(*(texto + 1), variaveis);
+			caracteres += formatacao(*(texto + 1), variaveis);
 			texto++;
 		}
 		texto++;

@@ -1,29 +1,41 @@
 NAME = libftprintf.a
 
-CC = cc 
+TEST_EXEC = test_printf
 
-CFLAGS = -Wall -Wextra -Werror
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -Ilibft
 
 AR = ar rcs
 
-SRCS = ft_printf.c 
-
+SRCS = ft_printf.c ft_printf_aux.c 
 OBJS = $(SRCS:.c=.o)
+
+LIBFT = libft/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-		$(AR) $(NAME) $(OBJS)
+$(NAME): $(LIBFT) $(OBJS)
+	cp $(LIBFT) $(NAME)
+	$(AR) $(NAME) $(OBJS)
+
+$(LIBFT):
+	make -C libft
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+test: all
+	$(CC) $(CFLAGS) main.c -o $(TEST_EXEC) -L. -lftprintf
+
 clean:
-		rm -f $(OBJS)
+	make -C libft clean
+	rm -f $(OBJS)
 
 fclean: clean
-		rm -f $(NAME)
+	make -C libft fclean
+	rm -f $(NAME)
+	rm -f $(TEST_EXEC)
 
 re: fclean all
 
-.PHONY: all clena fclean re 
+.PHONY: all clean fclean re test
