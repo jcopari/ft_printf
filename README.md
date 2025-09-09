@@ -16,13 +16,6 @@
 - [Funcionalidades](#-funcionalidades)  
 - [Status do Projeto](#-status-do-projeto)  
 - [Instalação](#-instalação)  
-- [Uso](#-uso)  
-- [Testes](#-testes)  
-- [Tecnologias Utilizadas](#-tecnologias-utilizadas)  
-- [Contribuição](#-contribuição)  
-- [Licença](#-licença)  
-- [Contato](#-contato)
-
 ---
 
 ## 📖 O que é
